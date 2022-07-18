@@ -3,5 +3,15 @@
   <%= form.text_field :name %>
   <%= form.label :email %>
   <%= form.text_field :email %>
-  <%= form.submit "Register" %>
+  <%= form.label :password %>
+  <%= form.text_field :password %>
+  <%= form.label :password_confirmation %>
+  <%= form.text_field :password_confirmation %>
+  <%= form.submit "Create User" %>
+<% end %>
+
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
 <% end %>
