@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Movies Index Page' do
   it 'displays top 40 movies', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
 
@@ -14,7 +14,7 @@ RSpec.describe 'User Movies Index Page' do
   end
 
   it 'has returned top rated movie titles as links to their detail page', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
 
@@ -24,7 +24,7 @@ RSpec.describe 'User Movies Index Page' do
   end
 
   it 'has returned top rated movie titles as links to their detail page', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
     fill_in 'search', with: 'Star Wars'
@@ -35,7 +35,7 @@ RSpec.describe 'User Movies Index Page' do
   end
 
   it 'displays movies containing searched keyword', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
     fill_in 'search', with: 'Star Wars'
@@ -50,7 +50,7 @@ RSpec.describe 'User Movies Index Page' do
   end
 
   it 'has a button that takes user back to the discover page', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit user_movies_path(user.id)
     click_on 'Discover Movies'

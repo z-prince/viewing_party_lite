@@ -16,9 +16,9 @@ RSpec.describe 'landing page' do
   end
 
   it 'has a list of existing users' do
-    User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
-    User.create!(name: 'Sarah Smallapoo', email: 'ssmallapoo@aol.com')
-    User.create!(name: 'Godrick Mjordenstein', email: 'pickofthegods@aol.com')
+    User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'leopardundies123987')
+    User.create!(name: 'Sarah Smallapoo', email: 'ssmallapoo@aol.com', password: 'leopardundies123987')
+    User.create!(name: 'Godrick Mjordenstein', email: 'pickofthegods@aol.com', password: 'leopardundies123987')
     visit '/'
 
     within '#existingUsers' do

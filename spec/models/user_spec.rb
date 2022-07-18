@@ -2,6 +2,10 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'relationships' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+    it { should validate_uniqueness_of(:email) }
+    it { should validate_presence_of(:password) }
     it { should have_many(:party_users) }
     it { should have_many(:parties).through(:party_users) }
   end
@@ -14,7 +18,7 @@ RSpec.describe User, type: :model do
 
   describe 'behaviors' do
     it 'can tell if the user is a party host' do
-      user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
+      user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'toochy')
       party1 = Party.create!(movie_name: 'Fight Club', movie_id: 1, date: Time.now.strftime('%d/%m/%Y'),
                              start_time: Time.now.strftime('%H:%M'), duration: 120)
       party2 = Party.create!(movie_name: 'Armageddon', movie_id: 4,
@@ -28,4 +32,3 @@ RSpec.describe User, type: :model do
     end
   end
 end
-

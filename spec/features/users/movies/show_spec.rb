@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'User Movies Show Page' do
   it 'has a button to create a viewing party', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
 
     visit user_movie_path(user_id: user.id, id: movie.movie_id)
@@ -13,7 +13,7 @@ RSpec.describe 'User Movies Show Page' do
   end
 
   it 'has a button to return to discover page', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
     visit user_movie_path(user_id: user.id, id: movie.movie_id)
 
@@ -22,7 +22,7 @@ RSpec.describe 'User Movies Show Page' do
   end
 
   it 'displays movie attributes', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
 
     visit user_movie_path(user_id: user.id, id: movie.movie_id)
@@ -34,7 +34,7 @@ RSpec.describe 'User Movies Show Page' do
   end
 
   it 'displays the first ten cast members', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
 
     visit user_movie_path(user_id: user.id, id: movie.movie_id)
@@ -56,7 +56,7 @@ RSpec.describe 'User Movies Show Page' do
   end
 
   it 'displays the review count', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
 
     visit user_movie_path(user_id: user.id, id: movie.movie_id)
@@ -65,7 +65,7 @@ RSpec.describe 'User Movies Show Page' do
   end
 
   it "displays the review author's name and review content", :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     movie = MoviesFacade.movie(550)
     review = MoviesFacade.movie_reviews(550)
     visit user_movie_path(user_id: user.id, id: movie.movie_id)

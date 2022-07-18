@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Viewing Party New Page' do
   it 'Has a form to create a new viewing party', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
     User.create!(name: 'Tom Marryway', email: 'gloop@email.com')
     User.create!(name: 'Jessica Marryway', email: 'kloop@email.com')
     User.create!(name: 'Sam Marryway', email: 'floop@email.com')

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Discover' do
   it 'has a button to display top rated movies', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
 
@@ -13,7 +13,7 @@ RSpec.describe 'Discover' do
   end
 
   it 'has a field to search for a movies', :vcr do
-    user = User.create!(name: 'User', email: 'user@email.com')
+    user = User.create!(name: 'User', email: 'user@email.com', password: 'leopardundies123987')
 
     visit "user/#{user.id}/discover"
 
@@ -22,4 +22,3 @@ RSpec.describe 'Discover' do
     expect(current_path).to eq("/users/#{user.id}/movies")
   end
 end
-

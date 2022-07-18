@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'user dashboard page' do
   it 'has users name' do
-    user = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
+    user = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'gloop')
 
     visit "/users/#{user.id}"
 
@@ -10,7 +10,7 @@ RSpec.describe 'user dashboard page' do
   end
 
   it 'has a button to discover movies' do
-    user = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
+    user = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'gloop')
 
     visit "/users/#{user.id}"
 
@@ -20,9 +20,9 @@ RSpec.describe 'user dashboard page' do
   end
 
   it 'has a movie image, title link, who is hosting the event, and a list of invitees' do
-    user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
-    user2 = User.create!(name: 'Jerry Jasmond', email: 'jjasmond@aol.com')
-    user3 = User.create!(name: 'Ken Kappersmith', email: 'kkappersmith@aol.com')
+    user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'gloop')
+    user2 = User.create!(name: 'Jerry Jasmond', email: 'jjasmond@aol.com', password: 'gloop')
+    user3 = User.create!(name: 'Ken Kappersmith', email: 'kkappersmith@aol.com', password: 'gloop')
     party1 = Party.create!(movie_name: 'Fight Club', movie_id: 1, date: Time.now.strftime('%d/%m/%Y'),
                            start_time: Time.now.strftime('%H:%M'), duration: 120)
     party2 = Party.create!(movie_name: 'Armageddon', movie_id: 4,

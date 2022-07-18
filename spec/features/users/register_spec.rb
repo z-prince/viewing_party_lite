@@ -6,6 +6,8 @@ RSpec.describe 'user registration page' do
 
     fill_in('Name', with: 'Sylvester Tommy')
     fill_in('Email', with: 'birdsarentreal@gmail.com')
+    fill_in('Password', with: 'hellcats420')
+    fill_in('Password Confirmation', with: 'hellcats420')
 
     click_on('Register')
 

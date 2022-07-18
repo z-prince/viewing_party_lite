@@ -16,9 +16,9 @@ RSpec.describe Party, type: :model do
 
   describe 'behaviors' do
     it 'can return the id of the party host' do
-      user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com')
-      user2 = User.create!(name: 'User2', email: 'aol@email.com')
-      user3 = User.create!(name: 'User3', email: 'email@aol.com')
+      user1 = User.create!(name: 'Tommy Tanktop', email: 'tanktoptitan@aol.com', password: 'gloop')
+      user2 = User.create!(name: 'User2', email: 'aol@email.com', password: 'gloop')
+      user3 = User.create!(name: 'User3', email: 'email@aol.com', password: 'gloop')
       party1 = Party.create!(movie_name: 'Fight Club', movie_id: 1, date: Time.now.strftime('%d/%m/%Y'),
                              start_time: Time.now.strftime('%H:%M'), duration: 120)
       PartyUser.create(party_id: party1.id, user_id: user1.id, host: true)
