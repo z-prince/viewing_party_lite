@@ -15,6 +15,12 @@ RSpec.describe 'User registration form' do
 
     click_on 'Create User'
 
-    expect(page).to have_content("Welcome, #{email}!")
+    user = User.find_by(email: 'happy@me.com')
+
+    expect(user.name).to eq(name)
+    expect(user.email).to eq(email)
+    expect(user.password).to_not eq(password)
+
+    expect(current_path).to eq("users/#{user.id}")
   end
 end
