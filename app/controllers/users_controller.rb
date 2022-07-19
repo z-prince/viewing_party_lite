@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       flash[:error] = 'Password and confirmation do not match!'
       redirect_to '/register'
     elsif new_user.save
+      session[:user_id] = user.id
+      flash[:success] = "Welcome, #{user.email}!"
       redirect_to user_path(id: new_user.id)
     else
       flash[:error] = 'Missing Required Fields'
