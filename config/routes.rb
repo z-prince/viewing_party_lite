@@ -4,11 +4,14 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
 
   get '/register' => 'users#new'
-  get '/login', to: 'users#login_form'
-  post '/login', to: 'users#login'
-  get '/user/:id/discover', to: 'users#discover'
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+  get '/discover', to: 'users#discover'
 
-  resources :users, only: %i[show create] do
+  get '/dashboard', to: 'users#show'
+
+  namespace :dashboard do
     resources :movies, controller: :user_movies do
       resources :viewing_parties
     end

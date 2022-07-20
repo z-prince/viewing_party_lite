@@ -1,10 +1,12 @@
-<h3><%= link_to "Log In", '/login' %></h3>
-
+<% if current_user %>
+  <p>you are logged in!</p>
+  <%= link_to "Logout", '/logout', method: :delete %>
+<%  else %>
+  <%= link_to "Register as a User", '/register' %>
+  <%= link_to "Login", '/login' %>
+<% end %>
 
 <p style="text-align:center;"><%= button_to "Create New User", '/register', method: :get, local: true %></p><br>
 <p style="text-align:center;">Existing Users:</p>
 <div id="existingUsers">
-  <% @users.each do |user| %>
-    <p style="text-align:center;"><%= link_to "#{user.name}", user_path(id: user.id) %></p>
-  <% end %>
 </div>

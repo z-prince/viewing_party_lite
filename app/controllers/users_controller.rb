@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @parties = @user.parties.all
   end
 
@@ -12,9 +12,9 @@ class UsersController < ApplicationController
       flash[:error] = 'Password and confirmation do not match!'
       redirect_to '/register'
     elsif new_user.save
-      session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.email}!"
-      redirect_to user_path(id: new_user.id)
+      session[:user_id] = new_user.id
+      flash[:success] = "Welcome, #{new_user.email}!"
+      redirect_to '/dashboard'
     else
       flash[:error] = 'Missing Required Fields'
       redirect_to '/register'
@@ -22,18 +22,7 @@ class UsersController < ApplicationController
   end
 
   def discover
-    @user = User.find(params[:id])
-  end
-
-  def login
-    user = User.find_by(email: params[:email])
-
-    if user&.authenticate(params[:password])
-      redirect_to user_path(id: user.id)
-    else
-      flash[:error] = 'Wrong email or password'
-      redirect_to '/login'
-    end
+    @user = current_user
   end
 
   private
